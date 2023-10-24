@@ -5,18 +5,105 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-
 public class PrimeGeneratorTest {
+
+	@Test
+	public void initializeNonNullLinkedListWithoutGeneratingPrimes() {
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertNotNull(cut.getPrimes());		//Check if initialization is done, when instances of class is created
+	}
+
+	@Test
+	public void verifyFromAs1ForPrimeBetween1And5() {	//From is start of range
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertTrue(cut.from == 1);			//Check if data member is initialized with correct value
+	}
+
+	@Test
+	public void checkFromAs4ForPrimeBetween1And5() {	//From is in the range
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertFalse(cut.from == 4);			//Check if data member is initialized with correct value
+	}
+
+	@Test
+	public void checkFromAsNot6ForPrimeBetween1And5() {	//From is out of range
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertFalse(cut.from == 6);			//Check if data member is initialized with correct value
+	}
+
+	@Test
+	public void verifyToAs5ForPrimeBetween1And5() {		//To is end of range
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertTrue(cut.to == 5);				//Check if data member is initialized with correct value
+	}
+
+	@Test
+	public void checkToAs6ForPrimeBetween1And5() {		//To is out of range
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertFalse(cut.to == 6);			//Check if data member is initialized with correct value
+	}
+
+	@Test
+	public void checkToAs1ForPrimeBetween1And5() {		//To is start of range
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertFalse(cut.to == 1);			//Check if data member is initialized with correct value
+	}
+
+	@Test
+	public void checkToAs3ForPrimeBetween1And5() {		//To is between of range
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertFalse(cut.to == 3);			//Check if data member is initialized with correct value
+	}
+
+	@Test
+	public void verifyIsEvenReturnsTrueFor2() {
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertTrue(cut.isEven(2));			//Check if method returns true for known even number
+	}
+
+	@Test
+	public void verifyIsEvenReturnsFalseFor3() {
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertFalse(cut.isEven(3));			//Check if method returns false for known odd number
+	}
+
+	@Test
+	public void verifyIsPrimeReturnsTrueFor5() {
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertTrue(cut.isPrime(5));			//Check if method returns true for known prime number
+	}
+
+	@Test
+	public void verifyIsPrimeReturnsFalseFor6() {
+		PrimeGenerator cut = new PrimeGenerator(1, 5);	//Object created
+		Assertions.assertFalse(cut.isPrime(6));			//Check if method returns false for known non-prime number
+	}
+
+	@Test
+	public void verifyGetPrimesWithoutCallingGeneratePrimesForPrimeBetween1And5() {
+		PrimeGenerator cut = new PrimeGenerator(1, 5);					//Object created
+
+		LinkedList<Long> expected = new LinkedList<>();					//LinkedList object created for expected
+		LinkedList<Long> actual = cut.getPrimes();						//Actual list of primes
+
+		Long[] expectedArray = expected.toArray(new Long[0]);			//Convert to Long array to use assertArrayEquals
+		Long[] actualArray = actual.toArray(new Long[0]);				//Convert to Long array to use assertArrayEquals
+
+		Assertions.assertTrue(cut instanceof PrimeGenerator);			//Check for object to be an instance of class
+		Assertions.assertArrayEquals(expectedArray, actualArray);		//Check if both arrays are same -> [] and []
+	}
+
 	@Test
 	public void primeBetween1And5() {
-		PrimeGenerator cut = new PrimeGenerator(1, 5);
-		cut.generatePrimes();
 
-		LinkedList<Long> expected = new LinkedList<>();
+		PrimeGenerator cut = new PrimeGenerator(1, 5);
+		cut.generatePrimes();											//Generates prime and stores in member variable
+
+		LinkedList<Long> expected = new LinkedList<>();					//Expected list of primes
 		expected.add(2L);
 		expected.add(3L);
 		expected.add(5L);
-		LinkedList<Long> actual = cut.getPrimes();
+		LinkedList<Long> actual = cut.getPrimes();						//Actual list of primes
 
 		Long[] expectedArray = expected.toArray(new Long[0]);
 		Long[] actualArray = actual.toArray(new Long[0]);
@@ -24,9 +111,8 @@ public class PrimeGeneratorTest {
 		Assertions.assertTrue(cut instanceof PrimeGenerator);			//Check for object to be an instance of class
 		Assertions.assertArrayEquals(expectedArray, actualArray);		//Check if list of primes in 'expectedArray' is same as in 'actualArray'
 	}
-
 	@Test
-	public void primeBetween14And16() {
+	public void noPrimeBetween14And16() {
 		PrimeGenerator cut = new PrimeGenerator(14, 16);
 		cut.generatePrimes();
 
@@ -40,7 +126,6 @@ public class PrimeGeneratorTest {
 		Assertions.assertArrayEquals(expectedArray, actualArray);				//Check if list of primes in 'expectedArray' is same as in 'actualArray'
 		Assertions.assertEquals(expectedArray.length, actualArray.length);		//Check if size of list of primes 'expectedArray' is equal to 'actualArray'
 	}
-
 	@Test
 	public void primeBetween2And50() {
 		PrimeGenerator cut = new PrimeGenerator(2, 50);
@@ -71,7 +156,6 @@ public class PrimeGeneratorTest {
 		Assertions.assertTrue(cut instanceof PrimeGenerator);			//Check for object to be an instance of class
 		Assertions.assertArrayEquals(expectedArray, actualArray);		//Check if list of primes in 'expectedArray' is same as in 'actualArray'
 	}
-
 	@Test
 	public void primeBetween3And11() {
 		PrimeGenerator cut = new PrimeGenerator(3, 11);
@@ -92,7 +176,6 @@ public class PrimeGeneratorTest {
 		Assertions.assertTrue(actual.contains(11L));				//Check if 'actual' list of primes contains 11
 		Assertions.assertTrue(!actual.contains(111L));				//Check if 'actual' list of primes does not contain 111
 	}
-
 	@Test
 	public void primeBetween5And1() {
 		try{
@@ -117,9 +200,6 @@ public class PrimeGeneratorTest {
 			cut.generatePrimes();
 			LinkedList<Long> actual = cut.getPrimes();
 
-			//Long[] expectedArray = expected.toArray(new Long[0]);
-			//Long[] actualArray = actual.toArray(new Long[0]);
-
 			Assertions.fail("from is less than 1");
 		}
 		catch(RuntimeException ex){
@@ -128,14 +208,24 @@ public class PrimeGeneratorTest {
 	}
 
 	@Test
+	public void primeBetween1AndNeg10() {
+		try{
+			PrimeGenerator cut = new PrimeGenerator(1, -10);
+			cut.generatePrimes();
+			LinkedList<Long> actual = cut.getPrimes();
+
+			Assertions.fail("to is less than from");
+		}
+		catch(RuntimeException ex){
+			Assertions.assertEquals("Wrong input values: from=1 to=-10", ex.getMessage());	//RuntimeException raised as 'to' is less than 'from'
+		}
+	}
+	@Test
 	public void primeBetweenNeg1AndNeg10() {
 		try{
 			PrimeGenerator cut = new PrimeGenerator(-1, -10);
 			cut.generatePrimes();
 			LinkedList<Long> actual = cut.getPrimes();
-
-			//Long[] expectedArray = expected.toArray(new Long[0]);
-			//Long[] actualArray = actual.toArray(new Long[0]);
 
 			Assertions.fail("from is less than 1");
 		}
@@ -143,21 +233,17 @@ public class PrimeGeneratorTest {
 			Assertions.assertEquals("Wrong input values: from=-1 to=-10", ex.getMessage());	//RuntimeException raised as 'from' is less than 1 and 'to' is not greater than 'from'
 		}
 	}
-
 	@Test
 	public void primeBetweenNeg13AndNeg13() {
 		try{
-			PrimeGenerator cut = new PrimeGenerator(13, 13);
+			PrimeGenerator cut = new PrimeGenerator(-13, -13);
 			cut.generatePrimes();
 			LinkedList<Long> actual = cut.getPrimes();
 
-			//Long[] expectedArray = expected.toArray(new Long[0]);
-			//Long[] actualArray = actual.toArray(new Long[0]);
-
-			Assertions.fail("to is equal to from");	//
+			Assertions.fail("to is equal to from");
 		}
 		catch(RuntimeException ex){
-			Assertions.assertEquals("Wrong input values: from=13 to=13", ex.getMessage());	//RuntimeException raised as 'to' is not greater than 'from'
+			Assertions.assertEquals("Wrong input values: from=-13 to=-13", ex.getMessage());	//RuntimeException raised as 'to' is not greater than 'from'
 		}
 	}
 }

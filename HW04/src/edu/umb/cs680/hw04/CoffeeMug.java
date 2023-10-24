@@ -11,7 +11,10 @@ class CoffeeMug {
         this.currentState = state;
     }
 
-    public String handleTemperature() {
-        return currentState.handleState(this);
+    public void heatCoffee() {
+        currentState.heat(this);
+    }
+    public String currentTemperature() {
+        return currentState.returnCurrentState(this);
     }
 }

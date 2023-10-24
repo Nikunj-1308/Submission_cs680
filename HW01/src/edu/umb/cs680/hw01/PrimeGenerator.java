@@ -37,7 +37,7 @@ public class PrimeGenerator {
 	}
 
 	public void generatePrimes(){
-		for (long n = from; n <= to; n++) {
+		for (long n = from; n <= to; n++) 	{
 			if( isPrime(n) ){ primes.add(n); }
         }
 	}
