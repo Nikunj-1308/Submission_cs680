@@ -29,12 +29,12 @@ public class CoffeeMugTest {
 	}
 
 	@Test
-	public void providingHeatToInitialStateCoffeMugResultsInHotState() {
+	public void providingHeatToInitialStateCoffeMugResultsInWarmStateAndFurtherHeatResultsInHotState() {
 		String expected = "The coffee is hot.";					//Expected string
 		CoffeeMug coffeeMug = new CoffeeMug();					//Initialize object
 
 		coffeeMug.heatCoffee();									//Heat function activated in coffee mug
-		String actual = coffeeMug.currentTemperature();			//Returns current state of coffee in coffeemug
+		String actual = coffeeMug.currentTemperature();			//Returns current state of coffee in coffeemug: warm state
 
 		coffeeMug.heatCoffee();									//Heat function activated in coffee mug
 		actual = coffeeMug.currentTemperature();				//Returns current state of coffee in coffeemug

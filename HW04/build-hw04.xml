@@ -1,4 +1,4 @@
-<project name="car" basedir="." default="clean" xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="CoffeeMugApp" basedir="." default="clean" xmlns:ivy="antlib:org.apache.ivy.ant">
     <property name="src" location="src" />
     <property name="bin" location="bin" />
     <property name="test" location="test" />
