@@ -26,11 +26,6 @@
         </javac>
     </target>
 
-    <target name="runsrc" depends="runtest">
-        <java classname="edu.umb.cs680.hw04.CoffeeMugApp"
-              classpathref="classpath"
-              fork="true"/>
-    </target>
 
     <target name="runtest" depends="compiletest">
         <java classpathref="classpath" classname="org.junit.platform.console.ConsoleLauncher">
@@ -41,7 +36,7 @@
         </java>
     </target>
 
-    <target name="clean" depends="runsrc">
+    <target name="clean" depends="runtest">
         <delete includeemptydirs="true">
             <fileset dir="${bin}" includes="**/*"/>
             <fileset dir="${test}/bin" includes="**/*"/>
