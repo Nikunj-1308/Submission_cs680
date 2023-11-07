@@ -29,6 +29,22 @@ public class KitchenTest {
 	}
 
 	@Test
+	public void testFridgeIsObserver() {
+		KitchenControllerImpl controller = new KitchenControllerImpl();
+		SmartFridge fridge = new SmartFridge(); // Device created
+
+		Assertions.assertTrue(fridge instanceof Observer); // Test if device created is of type observer
+	}
+
+	@Test
+	public void testOvenIsObserver() {
+		KitchenControllerImpl controller = new KitchenControllerImpl();
+		SmartOven oven = new SmartOven(); // Device created
+
+		Assertions.assertTrue(oven instanceof Observer); // Test if device created is of type observer
+	}
+
+	@Test
 	public void testTemperatureChangeFrom25To30WithChangeTemperatureForFridge() {
 		KitchenControllerImpl controller = new KitchenControllerImpl();
 		SmartFridge fridge = new SmartFridge(); // Device created
@@ -124,7 +140,7 @@ public class KitchenTest {
 	}
 
 	@Test
-	public void testTemperatureChange30EventForFridge() {
+	public void testTemperatureChange30ForFridge() {
 		int expected = 30;
 		KitchenControllerImpl controller = new KitchenControllerImpl();
 
@@ -133,7 +149,8 @@ public class KitchenTest {
 		controller.registerDevice(fridge); // Register the device
 		controller.changeTemperature(30); // Change Temperature
 
-		Assertions.assertEquals(expected, fridge.getFridgeLastTemperature());
+		Assertions.assertEquals(expected, fridge.getFridgeLastTemperature()); // Verify temperature change using
+																				// getFridgeLastTemperature
 	}
 
 	@Test
@@ -146,7 +163,8 @@ public class KitchenTest {
 		controller.registerDevice(oven); // Register the device
 		controller.changeTemperature(30); // Change Temperature
 
-		Assertions.assertEquals(expected, oven.getOvenLastTemperature());
+		Assertions.assertEquals(expected, oven.getOvenLastTemperature()); // Verify temperature change using
+																			// getOvenLastTemperature
 	}
 
 	@Test
@@ -161,7 +179,8 @@ public class KitchenTest {
 		controller.registerDevice(fridge); // Register the device
 		controller.changeTemperature(30); // Change Temperature
 
-		Assertions.assertEquals(expected, oven.getOvenLastTemperature());
+		Assertions.assertEquals(expected, oven.getOvenLastTemperature()); // Verify temperature change using
+																			// getOvenLastTemperature
 	}
 
 	@Test
@@ -176,12 +195,16 @@ public class KitchenTest {
 		controller.registerDevice(oven); // Register the device
 		controller.changeTemperature(30); // Change Temperature
 
-		Assertions.assertEquals(expected, fridge.getFridgeLastTemperature());
-		Assertions.assertEquals(expected, oven.getOvenLastTemperature());
+		Assertions.assertEquals(expected, fridge.getFridgeLastTemperature()); // Verify temperature change using
+																				// getFridgeLastTemperature
+		Assertions.assertEquals(expected, oven.getOvenLastTemperature()); // Verify temperature change using
+																			// getOvenLastTemperature
 
 		controller.changeTemperature(80); // Change Temperature
 		expected = 80;
-		Assertions.assertEquals(expected, fridge.getFridgeLastTemperature());
-		Assertions.assertEquals(expected, oven.getOvenLastTemperature());
+		Assertions.assertEquals(expected, fridge.getFridgeLastTemperature()); // Verify temperature change using
+																				// getFridgeLastTemperature
+		Assertions.assertEquals(expected, oven.getOvenLastTemperature()); // Verify temperature change using
+																			// getOvenLastTemperature
 	}
 }
