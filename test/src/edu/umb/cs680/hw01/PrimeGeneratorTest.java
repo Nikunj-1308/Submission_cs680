@@ -128,7 +128,7 @@ public class PrimeGeneratorTest {
 	}
 	@Test
 	public void primeBetween2And50() {
-		PrimeGenerator cut = new PrimeGenerator(2, 50);
+		PrimeGenerator cut = new PrimeGenerator(2, 50);						//From 2, To 50
 		cut.generatePrimes();
 
 		LinkedList<Long> expected = new LinkedList<>();
@@ -158,7 +158,7 @@ public class PrimeGeneratorTest {
 	}
 	@Test
 	public void primeBetween3And11() {
-		PrimeGenerator cut = new PrimeGenerator(3, 11);
+		PrimeGenerator cut = new PrimeGenerator(3, 11);								//From 3, To 11
 		cut.generatePrimes();
 
 		LinkedList<Long> expected = new LinkedList<>();
@@ -179,7 +179,7 @@ public class PrimeGeneratorTest {
 	@Test
 	public void primeBetween5And1() {
 		try{
-			PrimeGenerator cut = new PrimeGenerator(5, 1);
+			PrimeGenerator cut = new PrimeGenerator(5, 1);									//From 5, To 1
 			cut.generatePrimes();
 			LinkedList<Long> actual = cut.getPrimes();
 
@@ -196,7 +196,7 @@ public class PrimeGeneratorTest {
 	@Test
 	public void primeBetweenNeg1And10() {
 		try{
-			PrimeGenerator cut = new PrimeGenerator(-1, 10);
+			PrimeGenerator cut = new PrimeGenerator(-1, 10);									//From -1, To 10
 			cut.generatePrimes();
 			LinkedList<Long> actual = cut.getPrimes();
 
@@ -210,7 +210,7 @@ public class PrimeGeneratorTest {
 	@Test
 	public void primeBetween1AndNeg10() {
 		try{
-			PrimeGenerator cut = new PrimeGenerator(1, -10);
+			PrimeGenerator cut = new PrimeGenerator(1, -10);									//From 1, To -10
 			cut.generatePrimes();
 			LinkedList<Long> actual = cut.getPrimes();
 
@@ -223,7 +223,7 @@ public class PrimeGeneratorTest {
 	@Test
 	public void primeBetweenNeg1AndNeg10() {
 		try{
-			PrimeGenerator cut = new PrimeGenerator(-1, -10);
+			PrimeGenerator cut = new PrimeGenerator(-1, -10);									//From -1, To -10
 			cut.generatePrimes();
 			LinkedList<Long> actual = cut.getPrimes();
 
@@ -236,7 +236,7 @@ public class PrimeGeneratorTest {
 	@Test
 	public void primeBetweenNeg13AndNeg13() {
 		try{
-			PrimeGenerator cut = new PrimeGenerator(-13, -13);
+			PrimeGenerator cut = new PrimeGenerator(-13, -13);									//From -13, To -13
 			cut.generatePrimes();
 			LinkedList<Long> actual = cut.getPrimes();
 

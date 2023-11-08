@@ -92,10 +92,10 @@ public class CarTest {
 		Car car_1 = new Car("Toyota", "RAV4",  10, 2018, 10000.0f);			//Initialize car object
 		Car car_2 = new Car("Toyota", "RAV4",  10, 2018, 10000.0f);			//Initialize another car object
 
-		String[] actual_1 = carToStringArray(car_1);						//Object to string
-		String[] actual_2 = carToStringArray(car_2);						//Object to string
+		String[] actual_1 = carToStringArray(car_1);						//Object to array of string
+		String[] actual_2 = carToStringArray(car_2);						//Object to array of string
 
-		Assertions.assertArrayEquals(actual_2, actual_1);						//Check the equality with arrar-to-array comparision
+		Assertions.assertArrayEquals(actual_2, actual_1);					//Check the equality with arrar-to-array comparision
 	}
 	@Test
 	public void verifyCarEqualityOfMakeToyotaModelRAV4Year2018WithConstructorInitialization() {
@@ -103,28 +103,28 @@ public class CarTest {
 		
 		Car car_1 = new Car("Toyota", "RAV4",  10, 2018, 10000.0f);			//Initialize car object
 
-		String[] actual = carToStringArray(car_1);
+		String[] actual = carToStringArray(car_1);							//Object to array of string
 
 		Assertions.assertArrayEquals(expected, actual);						//Check the equality with arrar-to-array comparision
 	}
 
 	@Test
 	public void verifyCarInequalityOfMakeMercedesModelRAV4Year2018StringArrayWithConstructorMakeToyotaModelRAV4Year2018() {
-		String[] expected = {"Mercedes", "RAV4", "2018"};						//String array
+		String[] expected = {"Mercedes", "RAV4", "2018"};					//String array
 
 		Car car_1 = new Car("Toyota", "RAV4",  10, 2018, 10000.0f);			//Initialize car object
 
-		String[] actual = carToStringArray(car_1);
+		String[] actual = carToStringArray(car_1);							//Object to array of string
 
-		Assertions.assertFalse(Arrays.equals(expected, actual));						//Check the equality with arrar-to-array comparision
+		Assertions.assertFalse(Arrays.equals(expected, actual));			//Check the equality with arrar-to-array comparision
 	}
 	@Test
 	public void verifyCarInequalityWithMakeToyotaModelRAV4Year2018AndMakeMercedesModelRAV4Year2018() {
 		Car car_1 = new Car("Toyota", "RAV4",  10, 2018, 10000.0f);			//Initialize car object
 		Car car_2 = new Car("Mercedes", "RAV4",  10, 2018, 10000.0f);		//Initialize another car object
 
-		String[] actual_1 = carToStringArray(car_1);
-		String[] actual_2 = carToStringArray(car_2);
+		String[] actual_1 = carToStringArray(car_1);						//Object to array of string
+		String[] actual_2 = carToStringArray(car_2);						//Object to array of string
 
 		Assertions.assertFalse(Arrays.equals(actual_1, actual_2));			//Check the inequality with arrar-to-array comparision
 	}
@@ -132,10 +132,10 @@ public class CarTest {
 	@Test
 	public void verifyCarInequalityWithMakeToyotaModelRAV4Year2018AndMakeToyotaModelAMGYear2018() {
 		Car car_1 = new Car("Toyota", "RAV4",  10, 2018, 10000.0f);			//Initialize car object
-		Car car_2 = new Car("Toyota", "AMG",  10, 2018, 10000.0f);		//Initialize another car object
+		Car car_2 = new Car("Toyota", "AMG",  10, 2018, 10000.0f);			//Initialize another car object
 
-		String[] actual_1 = carToStringArray(car_1);
-		String[] actual_2 = carToStringArray(car_2);
+		String[] actual_1 = carToStringArray(car_1);						//Object to array of string
+		String[] actual_2 = carToStringArray(car_2);						//Object to array of string
 
 		Assertions.assertFalse(Arrays.equals(actual_1, actual_2));			//Check the inequality with arrar-to-array comparision
 	}
@@ -143,10 +143,10 @@ public class CarTest {
 	@Test
 	public void verifyCarInequalityWithMakeToyotaModelRAV4Year2018AndMakeToyotaModelRAV4Year2019() {
 		Car car_1 = new Car("Toyota", "RAV4",  10, 2018, 10000.0f);			//Initialize car object
-		Car car_2 = new Car("Toyota", "RAV4",  10, 2019, 10000.0f);		//Initialize another car object
+		Car car_2 = new Car("Toyota", "RAV4",  10, 2019, 10000.0f);			//Initialize another car object
 
-		String[] actual_1 = carToStringArray(car_1);
-		String[] actual_2 = carToStringArray(car_2);
+		String[] actual_1 = carToStringArray(car_1);						//Object to array of string
+		String[] actual_2 = carToStringArray(car_2);						//Object to array of string
 
 		Assertions.assertFalse(Arrays.equals(actual_1, actual_2));			//Check the inequality with arrar-to-array comparision
 	}

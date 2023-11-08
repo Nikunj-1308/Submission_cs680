@@ -1,4 +1,4 @@
-<project name="car" basedir="." default="clean" xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="hw03" basedir="." default="clean" xmlns:ivy="antlib:org.apache.ivy.ant">
     <property name="src" location="src" />
     <property name="bin" location="bin" />
     <property name="test" location="test" />
@@ -15,13 +15,13 @@
     </target>
 
     <target name="compilesource" depends="init">
-        <javac srcdir="${src}" destdir="${bin}" includeAntRuntime="no">
+        <javac srcdir="${src}/edu/umb/cs680/${ant.project.name}" destdir="${bin}" includeAntRuntime="no">
             <classpath refid="classpath"/>
         </javac>
     </target>
 
     <target name="compiletest" depends="compilesource">
-        <javac srcdir="${test}" destdir="${test}/bin" includeAntRuntime="no">
+        <javac srcdir="${test}/src/edu/umb/cs680/${ant.project.name}" destdir="${test}/bin" includeAntRuntime="no">
             <classpath refid="classpath"/>
         </javac>
     </target>
