@@ -1,0 +1,51 @@
+<project name="hw17" basedir="." default="clean" xmlns:ivy="antlib:org.apache.ivy.ant">
+    <property name="src" location="src" />
+    <property name="bin" location="bin" />
+    <property name="test" location="test" />
+    <path id="classpath">
+        <fileset dir = "lib"></fileset>
+        <pathelement location="bin"  />
+        <pathelement location="${test}/bin"  />
+    </path>
+
+    <target name="init">
+        <ivy:retrieve/>
+        <mkdir dir="${bin}"/>
+        <mkdir dir="${test}/bin"/>
+    </target>
+
+    <target name="compilesource" depends="init">
+        <javac srcdir="${src}/edu/umb/cs680/${ant.project.name}" destdir="${bin}" includeAntRuntime="no">
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+
+    <target name="compiletest" depends="compilesource">
+        <javac srcdir="${test}/src/edu/umb/cs680/${ant.project.name}" destdir="${test}/bin" includeAntRuntime="no">
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+
+    <target name="runsrc" depends="runtest">
+        <java classname="edu.umb.cs680.hw17.fs.FSElement"
+              classpathref="classpath"
+              fork="true"/>
+    </target>
+
+    <target name="runtest" depends="compiletest">
+        <java classpathref="classpath" classname="org.junit.platform.console.ConsoleLauncher">
+
+            <arg value="--class-path" />
+            <arg path="${bin}:${test}/bin:path/to/junit-platform-console-standalone-1.7.2.jar" />
+            <arg value="--scan-classpath" />
+        </java>
+    </target>
+
+    <target name="clean" depends="runsrc">
+        <delete includeemptydirs="true">
+            <fileset dir="${bin}" includes="**/*"/>
+            <fileset dir="lib" includes="**/*"/>
+            <fileset dir="${test}/bin" includes="**/*"/>
+        </delete>
+    </target>
+</project>
