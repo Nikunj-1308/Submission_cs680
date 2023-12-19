@@ -19,6 +19,7 @@ public class CarTest {
         Car actual = new Car("Toyota","RAV4",23,2018,30000);	//Actual car instance
         Assertions.assertArrayEquals(expected,carToStringArray(actual));	//Compare String arrays with the help of carToStringArray
     }
+    
     @Test
     void verifyCar() {
         Car expected = new Car("Toyota","RAV4",23,2018,30000);

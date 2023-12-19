@@ -1,10 +1,6 @@
 package edu.umb.cs680.hw09.fs.util;
 
-import edu.umb.cs680.hw09.fs.Directory;
-import edu.umb.cs680.hw09.fs.FSVisitor;
-import edu.umb.cs680.hw09.fs.File;
-import edu.umb.cs680.hw09.fs.Link;
-import edu.umb.cs680.hw09.fs.util.FileSearchVisitor;
+import edu.umb.cs680.hw09.fs.*;
 
 import java.util.LinkedList;
 

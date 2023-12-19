@@ -35,6 +35,6 @@ public class MileageComparatorTest
         for (Car c : cars)
             actual.add(c.getMileage());		//Append mileage for actual
 
-		Assertions.assertEquals(actual, expected);
+		Assertions.assertEquals(expected, actual);
     }
 }

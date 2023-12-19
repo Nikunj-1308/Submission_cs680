@@ -48,14 +48,13 @@ class FileSearchVisitorTest {
     }
 
     @Test
-    public void verifyFoundFilesCount() {
+    public void verifyFoundFilesCountAs1() {
         int expected = 1;
         Assertions.assertEquals(expected, fileSearchVisitor.getFoundFiles().size());
     }
 
     @Test
     public void verifyFoundFilePresence() {
-        
         Assertions.assertTrue(fileSearchVisitor.getFoundFiles().contains(readme));
     }
 }

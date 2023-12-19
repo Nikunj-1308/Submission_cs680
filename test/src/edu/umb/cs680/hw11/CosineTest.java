@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 
 public class CosineTest{
     @Test
-    public void testDIstanceBetweenPoint1As1And1And4AndPoint2As7And8And9(){
+    public void verifyDistanceBetweenPoint1As1And7And14AndPoint2As3And6And9(){
         List<Double> point1 = Arrays.asList(1.0, 7.0, 14.0);
         List<Double> point2 = Arrays.asList(3.0, 6.0, 9.0);
         double expected = 0.02872259835782942;

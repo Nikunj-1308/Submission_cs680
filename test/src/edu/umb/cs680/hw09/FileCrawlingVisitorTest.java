@@ -42,16 +42,18 @@ class FileCrawlingVisitorTest {
 	}
 
 	@Test
-	public void verifyFileSizeAAs5() {
+	public void verifyFileSizeAAs1() {
+		int expected = 1;
 		FileCrawlingVisitor visitor = new FileCrawlingVisitor();
 		a.accept(visitor);
-		Assertions.assertEquals(visitor.getFiles().stream().count(), 1);
+		Assertions.assertEquals(expected, visitor.getFiles().stream().count());
 	}
 
 	@Test
 	public void verifyFileSizeRepoAs5() {
+		int expected = 5;
 		FileCrawlingVisitor visitor = new FileCrawlingVisitor();
 		repo.accept(visitor);
-		Assertions.assertEquals(visitor.getFiles().stream().count(), 5);
+		Assertions.assertEquals(expected, visitor.getFiles().stream().count());
 	}
 }

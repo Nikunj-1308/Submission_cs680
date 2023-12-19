@@ -53,22 +53,25 @@ class CountingVisitorTest {
 
     @Test
     public void verifyDirectoryCount4ForRepo() {
+        int expected = 4;
         CountingVisitor visitor = new CountingVisitor();
         repo.accept(visitor);
-        Assertions.assertEquals(visitor.getDirNum(), 4);
+        Assertions.assertEquals(expected, visitor.getDirNum());
     }
 
     @Test
     public void verifyFileCount5ForRepo() {
+        int expected = 5;
         CountingVisitor visitor = new CountingVisitor();
         repo.accept(visitor);
-        Assertions.assertEquals(visitor.getFileNum(), 5);
+        Assertions.assertEquals(expected, visitor.getFileNum());
     }
 
     @Test
     public void verifyLinkCount1ForRepo() {
+        int expected = 1;
         CountingVisitor visitor = new CountingVisitor();
         repo.accept(visitor);
-        Assertions.assertEquals(visitor.getLinkNum(), 1);
+        Assertions.assertEquals(expected, visitor.getLinkNum());
     }
 }

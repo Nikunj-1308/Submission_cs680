@@ -71,7 +71,7 @@ public class KitchenTest {
     }
 
     @Test
-    public void testTemperatureChangeFrom25To30WithChangeTemperatureForOven() {
+    public void verifyTemperatureChangeFrom25To30WithChangeTemperatureForOven() {
         KitchenControllerImpl controller = new KitchenControllerImpl();
         SmartOven oven = new SmartOven();
 

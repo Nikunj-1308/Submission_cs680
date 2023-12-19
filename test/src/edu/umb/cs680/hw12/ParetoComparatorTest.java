@@ -20,7 +20,7 @@ public class ParetoComparatorTest {
     }
 
     @Test
-    public void paretoSort() {
+    public void verifyParetoSort() {
         ArrayList<Integer> actual = new ArrayList<>();
         ArrayList<Integer> expected = new ArrayList<>();
         

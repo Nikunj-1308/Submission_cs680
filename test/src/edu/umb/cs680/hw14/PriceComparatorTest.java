@@ -22,7 +22,7 @@ public class PriceComparatorTest
 
     }
     @Test
-    public void verify_PriceComparatorForUsedCarsAs250000Then50001Then25000Then10000()
+    public void verifyPriceComparatorForUsedCarsAs250000Then50001Then25000Then10000()
     {
         Assertions.assertEquals(250000.0f,cars.get(0).getPrice());
         Assertions.assertEquals(50001.0f, cars.get(1).getPrice());

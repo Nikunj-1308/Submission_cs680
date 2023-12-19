@@ -22,7 +22,7 @@ public class YearComparatorTest
     }
 
     @Test
-    public void yearSort() {
+    public void verifyYearSort() {
         ArrayList<Integer> actual = new ArrayList<>();
         ArrayList<Integer> expected = new ArrayList<>();
 
@@ -34,7 +34,7 @@ public class YearComparatorTest
         for (Car c : cars)
             actual.add(c.getYear());
 
-        Assertions.assertEquals(actual, expected); 
+        Assertions.assertEquals(expected, actual); 
     }
 
 }

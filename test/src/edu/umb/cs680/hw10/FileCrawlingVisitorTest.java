@@ -63,6 +63,5 @@ class FileCrawlingVisitorTest {
         Link expectedLink = srcDir.getLinks().get(0);
 
         Assertions.assertEquals(expectedLink, fileCrawlingVisitor.getLinks().get(0));
-        //Assertions.assertTrue(fileCrawlingVisitor.getLinks().contains(linkToReadMe));
     }
 }

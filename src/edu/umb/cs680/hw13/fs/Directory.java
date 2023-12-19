@@ -38,10 +38,10 @@ public class Directory extends FSElement {
     public LinkedList<Directory> getSubDirectories() { // Returns a list of SubDirectories
         for (FSElement element : children) {
             if (element.isDirectory()) {
-                subDirectory.add((Directory) element);
+                this.subDirectory.add((Directory) element);
             }
         }
-        return subDirectory;
+        return this.subDirectory;
     }
 
     

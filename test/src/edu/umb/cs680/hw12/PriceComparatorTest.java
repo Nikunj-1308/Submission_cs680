@@ -24,7 +24,7 @@ public class PriceComparatorTest
     }
 
     @Test
-    public void priceSort() {
+    public void verifyPriceSort() {
         ArrayList<Float> actual = new ArrayList<>();
         ArrayList<Float> expected = new ArrayList<>();
 
@@ -36,6 +36,6 @@ public class PriceComparatorTest
         for (Car c : cars)
             actual.add(c.getPrice());
 
-        Assertions.assertEquals(actual, expected);
+        Assertions.assertEquals(expected, actual);
     }
 }

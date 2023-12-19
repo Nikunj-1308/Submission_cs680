@@ -50,56 +50,56 @@ class DirectoryTest {
     }
 
     @Test
-    public void verifyDirectoryEqualityRepo() {
+    public void verifyDirectoryEqualityRepoAsRepoZeroNull() {
         String expected[] = { "repo", "0", null };
         String[] actual = dirToStringArray(repo);
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void verifyDirectoryEqualitySrc() {
+    public void verifyDirectoryEqualitySrcAsSrcZeroRepo() {
         String[] expected = { "src", "0", "repo" };
         String[] actual = dirToStringArray(src);
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void verifyDirectoryEqualityTest() {
+    public void verifyDirectoryEqualityTestAsTestZeroRepo() {
         String expected[] = { "test", "0", "repo" };
         String[] actual = dirToStringArray(test);
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void verifyDirectoryEqualityTestSrc() {
+    public void verifyDirectoryEqualityTestSrcAsSrcZeroTest() {
         String expected[] = { "src", "0", "test" };
         String[] actual = dirToStringArray(srcTest);
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void verifyRepoAsADirectory() {       //Check if its a directory
+    public void verifyRepoAsADirectory() {      
         Assertions.assertTrue(repo.isDirectory());
     }
 
     @Test   
-    public void verifySrcAsADirectory() {        //Check if Src Directory instances as directories
+    public void verifySrcAsADirectory() {        
         Assertions.assertTrue(src.isDirectory());
     }
 
     @Test
-    public void verifyTestAsADirectory() {       //Check if test Directory instances as directories
+    public void verifyTestAsADirectory() {      
         Assertions.assertTrue(test.isDirectory());
     }
 
     @Test
-    public void verifySrcTestAsADirectory() {    //Check if Src under Test Directory instances as directories
+    public void verifySrcTestAsADirectory() {  
         Assertions.assertTrue(srcTest.isDirectory());
     }
 
     
     @Test
-    public void verifyCountFilesInRepoAs3() {   // Count the number of child nodes
+    public void verifyCountFilesInRepoAs3() {
         int expected = 3;
         Assertions.assertEquals(expected, repo.countChildren());
     }

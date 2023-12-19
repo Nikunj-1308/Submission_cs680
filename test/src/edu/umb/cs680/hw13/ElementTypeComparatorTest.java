@@ -1,13 +1,15 @@
-package edu.umb.cs680.hw15;
+package edu.umb.cs680.hw13;
 
 import java.util.List;
-import edu.umb.cs680.hw15.fs.*;
 import java.time.LocalDateTime;
+import edu.umb.cs680.hw13.fs.*;
+import edu.umb.cs680.hw13.fs.util.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Assertions;
 
-public class SizeComparatorTest
+import static org.junit.jupiter.api.Assertions.*;
+public class ElementTypeComparatorTest
 {
     static LocalDateTime time = LocalDateTime.now();
 	
@@ -42,28 +44,36 @@ public class SizeComparatorTest
         readme = new File(repo, "readme.md", 1, time);
         linkToReadMe = new Link(srcTest, "rm.md", 1, time, readme);
     }
-
+    
     @Test
-    public void verifyGetChildrenForRepoAsReadmeSrcTest() {
-        FSElement[] expected = {readme, src, test};
+    public void verifyElementKindComparatorForRepoAsSrcTest() {
+        FSElement[] expected = {src, test};
         Directory dir = repo;
-        List<FSElement> element = dir.getChildren((FSElement alphaFS_1, FSElement alphaFS_2) -> Integer.compare(alphaFS_2.getSize(), alphaFS_1.getSize()));
+        List<Directory> element = dir.getSubDirectories(new ElementTypeComparator());
         Assertions.assertArrayEquals(expected, element.toArray());
     }
-    @Test
 
-    public void verifyGetSubDirectoriesForRepoAsSrcTest() {
-        Directory[] expected = {src, test};
-        Directory dir = repo;
-        List<Directory> element = dir.getSubDirectories((FSElement alphaFS_1, FSElement alphaFS_2) -> Integer.compare(alphaFS_2.getSize(), alphaFS_1.getSize()));
-        Assertions.assertArrayEquals(expected,element.toArray() );
+    @Test
+    public void verifyElementKindComparatorForSrcAsAB() {
+        FSElement[] expected = {a, b};
+        Directory dir = src;
+        List<File> element = dir.getFiles(new ElementTypeComparator());
+        Assertions.assertArrayEquals(expected, element.toArray());
     }
 
     @Test
-    public void verifyGetFilesForSrcTestAsATestBTest() {
-        File[] expected = {aTest, bTest};
+    public void verifyElementKindComparatorForSrcTestAsSrcTest() {
+        FSElement[] expected = {srcTest};
+        Directory dir = test;
+        List<Directory> element = dir.getSubDirectories(new ElementTypeComparator());
+        Assertions.assertArrayEquals(expected, element.toArray());
+    }
+
+    @Test
+    public void verifyElementKindComparatorForSrcTestFiles() {
+        FSElement[] expected = {aTest, bTest};
         Directory dir = srcTest;
-        List<File> element = dir.getFiles((FSElement alphaFS_1, FSElement alphaFS_2) -> Integer.compare(alphaFS_2.getSize(), alphaFS_1.getSize()));
-        Assertions.assertArrayEquals(expected,element.toArray());
+        List<File> element = dir.getFiles(new ElementTypeComparator());
+        Assertions.assertArrayEquals(expected, element.toArray());
     }
 }

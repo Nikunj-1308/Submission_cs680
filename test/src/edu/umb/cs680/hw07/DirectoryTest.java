@@ -49,28 +49,28 @@ class DirectoryTest {
     }
 
     @Test
-    public void verifyDirectoryEqualityRepo() {
+    public void verifyDirectoryEqualityRepoAsRepoZeroNull() {
         String expected[] = { "repo", "0", null };
         String[] actual = dirToStringArray(repo);
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void verifyDirectoryEqualitySrc() {
+    public void verifyDirectoryEqualitySrcAsSrcZeroRepo() {
         String[] expected = { "src", "0", "repo" };
         String[] actual = dirToStringArray(src);
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void verifyDirectoryEqualityTest() {
+    public void verifyDirectoryEqualityTestAsTestZeroRepo() {
         String expected[] = { "test", "0", "repo" };
         String[] actual = dirToStringArray(test);
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void verifyDirectoryEqualityTestSrc() {
+    public void verifyDirectoryEqualityTestSrcAsSrcZeroTest() {
         String expected[] = { "src", "0", "test" };
         String[] actual = dirToStringArray(srcTest);
         Assertions.assertArrayEquals(expected, actual);

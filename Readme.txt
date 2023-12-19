@@ -24,7 +24,7 @@ The application involves registering smart devices like Fridge, Oven, Microwave.
 
 KitchenControllerImpl implements the Observable class, so that it can use the methods defined in Observable.
 
-Casses like:
+Cases like:
 SmartFridge: Implements Observer and reacts to temperature change in kitchen as per condition.
 SmartOven: Implements Observer and reacts to temperature change in kitchen as per condition.
 
@@ -33,4 +33,23 @@ SmartKitchen App demonstrates how whole application runs.
 TemperatureEvent: A class representing a temperature change event. It has a data member temperature, a constructor and a method.
 
 The above behaviour benefit from Observer Design Pattern.
+
+HW16:
+This is a Smart Kitchen Application using the Observer Design Pattern.
+The application involves registering smart devices like Fridge, Oven, Microwave. And we can send an event to change the temperature of these devices.
+
+KitchenControllerImpl implements the Observable class, so that it can use the methods defined in Observable.
+
+Cases like previously:
+SmartFridge: Implements Observer and reacts to temperature change in kitchen as per condition.
+SmartOven: Implements Observer and reacts to temperature change in kitchen as per condition.
+
+Now: It is being done with Lambda Expression which replaces the Observer Classes.e
+
+SmartKitchen App demonstrates how whole application runs.
+
+TemperatureEvent: A class representing a temperature change event. It has a data member temperature, a constructor and a method.
+
+The above behaviour benefit from Observer Design Pattern.
+
 

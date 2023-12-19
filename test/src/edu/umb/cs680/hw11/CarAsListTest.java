@@ -27,7 +27,7 @@ public class CarAsListTest {
     }
 
     @Test
-    public void testDistanceMatrixWithLargeDataSet() {
+    public void verifyDistanceMatrixWithLargeDataSet() {
         int numOfCars = 998;
         List<Car> cars = generateRandomCarList(numOfCars);
         cars.add(new Car("Mercedes", "AMG", 10, 2010, 12000));

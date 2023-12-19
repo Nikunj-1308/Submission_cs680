@@ -22,7 +22,7 @@ public class MileageComparatorTest {
 
     }
     @Test
-    public void verify_MileageComparatorForUsedCarsAs17151210()
+    public void verifyMileageComparatorForUsedCarsAs17151210()
     {
         Assertions.assertEquals(17, cars.get(0).getMileage());
         Assertions.assertEquals(15, cars.get(1).getMileage());

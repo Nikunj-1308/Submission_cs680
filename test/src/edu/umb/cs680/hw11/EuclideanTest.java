@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 
 public class EuclideanTest{
     @Test
-    public void distanceTestWithPoint1As1And1And4AndPoint2As7And8And9() {
+    public void verifyDistanceTestWithPoint1As1And1And4AndPoint2As7And8And9() {
         List<Double> point1 = Arrays.asList(1.0, 1.0, 1.0);
         List<Double> point2 = Arrays.asList(7.0, 8.0, 9.0);
         double actual = new Euclidean().distance(point1, point2);

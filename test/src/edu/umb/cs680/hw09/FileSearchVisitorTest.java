@@ -43,8 +43,9 @@ class FileSearchVisitorTest {
 
     @Test
     public void verifyGetFoundFilesForBAs1() {
+        int expected = 1;
         FileSearchVisitor visitor = new FileSearchVisitor("B.java");
         b.accept(visitor);
-        Assertions.assertEquals(visitor.getFoundFiles().size(), 1);
+        Assertions.assertEquals(expected, visitor.getFoundFiles().size());
     }
 }
