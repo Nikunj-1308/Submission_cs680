@@ -15,21 +15,15 @@
     </target>
     
     <target name="compilesource" depends="init">
-        <javac srcdir="${src}/edu/umb/cs680/${ant.project.name}" destdir="${bin}" includeAntRuntime="no">
+        <javac srcdir="${src}/edu/umb/cs681/${ant.project.name}" destdir="${bin}" includeAntRuntime="no">
             <classpath refid="classpath"/>
         </javac>
     </target>
 
     <target name="compiletest" depends="compilesource">
-        <javac srcdir="${test}/src/edu/umb/cs680/${ant.project.name}" destdir="${test}/bin" includeAntRuntime="no">
+        <javac srcdir="${test}/src/edu/umb/cs681/${ant.project.name}" destdir="${test}/bin" includeAntRuntime="no">
             <classpath refid="classpath"/>
         </javac>
-    </target>
-
-    <target name="runsrc" depends="runtest">
-        <java classname="edu.umb.cs680.hw02.SingletonPrimeGenerator"
-                classpathref="classpath"  
-                fork="true"/>
     </target>
 
     <target name="runtest" depends="compiletest">
@@ -39,6 +33,12 @@
             <arg path="${bin}:${test}/bin:path/to/junit-platform-console-standalone-1.7.2.jar" />
             <arg value="--scan-classpath" />
         </java>
+    </target>
+
+    <target name="runsrc" depends="runtest">
+        <java classname="edu.umb.cs681.hw02.GetGPA"
+                classpathref="classpath"  
+                fork="true"/>
     </target>
     
     <target name="clean" depends="runsrc">

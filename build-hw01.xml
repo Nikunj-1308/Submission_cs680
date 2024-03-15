@@ -15,19 +15,19 @@
     </target>
     
     <target name="compilesource" depends="init">
-        <javac srcdir="${src}/edu/umb/cs680/${ant.project.name}" destdir="${bin}" includeAntRuntime="no">
+        <javac srcdir="${src}/edu/umb/cs681/${ant.project.name}" destdir="${bin}" includeAntRuntime="no">
             <classpath refid="classpath"/>
         </javac>
     </target>
 
     <target name="compiletest" depends="compilesource">
-        <javac srcdir="${test}/src/edu/umb/cs680/${ant.project.name}" destdir="${test}/bin" includeAntRuntime="no">
+        <javac srcdir="${test}/src/edu/umb/cs681/${ant.project.name}" destdir="${test}/bin" includeAntRuntime="no">
             <classpath refid="classpath"/>
         </javac>
     </target>
 
     <target name="runsrc" depends="runtest">
-        <java classname="edu.umb.cs680.hw01.PrimeGenerator"
+        <java classname="edu.umb.cs681.hw01.FileSystemProcessor"
                 classpathref="classpath"  
                 fork="true"/>
     </target>

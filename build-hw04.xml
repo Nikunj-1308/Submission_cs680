@@ -7,25 +7,24 @@
         <pathelement location="bin"  />
         <pathelement location="${test}/bin"  />
     </path>
-
+    
     <target name="init">
         <ivy:retrieve/>
         <mkdir dir="${bin}"/>
         <mkdir dir="${test}/bin"/>
     </target>
-
+    
     <target name="compilesource" depends="init">
-        <javac srcdir="${src}/edu/umb/cs680/${ant.project.name}" destdir="${bin}" includeAntRuntime="no">
+        <javac srcdir="${src}/edu/umb/cs681/${ant.project.name}" destdir="${bin}" includeAntRuntime="no">
             <classpath refid="classpath"/>
         </javac>
     </target>
 
     <target name="compiletest" depends="compilesource">
-        <javac srcdir="${test}/src/edu/umb/cs680/${ant.project.name}" destdir="${test}/bin" includeAntRuntime="no">
+        <javac srcdir="${test}/src/edu/umb/cs681/${ant.project.name}" destdir="${test}/bin" includeAntRuntime="no">
             <classpath refid="classpath"/>
         </javac>
     </target>
-
 
     <target name="runtest" depends="compiletest">
         <java classpathref="classpath" classname="org.junit.platform.console.ConsoleLauncher">
@@ -36,7 +35,13 @@
         </java>
     </target>
 
-    <target name="clean" depends="runtest">
+    <target name="runsrc" depends="runtest">
+        <java classname="edu.umb.cs681.hw04.ConvertToBW"
+                classpathref="classpath"  
+                fork="true"/>
+    </target>
+    
+    <target name="clean" depends="runsrc">
         <delete includeemptydirs="true">
             <fileset dir="${bin}" includes="**/*"/>
             <fileset dir="${test}/bin" includes="**/*"/>
